@@ -57,17 +57,17 @@ class GolBoard {
 
     func getNextState() -> GolBoard {
         let nextBoard = GolBoard(xSize: xSize, ySize: ySize)
-        for i in 0..<xSize {
-            for j in 0..<ySize {
-                nextBoard.setCell(x: i, y: j, value: getNextState(x: i, y: j))
+        for i in 0..<ySize {
+            for j in 0..<xSize {
+                nextBoard.setCell(x: j, y: i, value: getNextState(x: j, y: i))
             }
         }
         return nextBoard
     }
 
     func printBoard() {
-        for i in 0..<xSize {
-            for j in 0..<ySize {
+        for i in 0..<ySize {
+            for j in 0..<xSize {
                 if (getCell(x: j, y: i)) {
                     print("█", terminator: "")
                 } else {
